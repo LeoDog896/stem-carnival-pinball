@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: 62fb71706ec5f6c40bab80bf6088668f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - x1: {instanceID: 0}
+  - x2: {instanceID: 0}
+  - x3: {instanceID: 0}
+  - main: {instanceID: 0}
+  - vaultMusic: {fileID: 8300000, guid: 0019a55ffdb3c4144b7b6181ba2db3e8, type: 3}
+  - roulSound: {instanceID: 0}
+  - rouletteAudio: {instanceID: 0}
+  - boostAudio: {instanceID: 0}
+  - rouletteRoll: {instanceID: 0}
+  - policeSound: {instanceID: 0}
+  - r: {fileID: 8475512327826071527, guid: 77b1184ad7fd1d647a169190a11d7123, type: 3}
+  - b: {instanceID: 0}
+  - blackScreen: {fileID: 6073511040091588102, guid: 479abe6543c94d94682fe298b74cac58, type: 3}
+  - pityText: {fileID: 9049409973410124856, guid: 6fe44658564d8f54ba91d8b6bef5fa97, type: 3}
+  - roul: {fileID: 8269621224474894515, guid: 667bb9df4c605f94d854c63686ab3418, type: 3}
+  - cam: {instanceID: 0}
+  - start: {instanceID: 0}
+  - scoreView: {instanceID: 0}
+  - rb79: {instanceID: 0}
+  - rolling: {instanceID: 0}
+  - wall: {fileID: 9046827339546534321, guid: 093ebad8cb0b71b489605fc16085c13f, type: 3}
+  - rouller: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

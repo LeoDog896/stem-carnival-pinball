@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - 1
+  - 0
+  - camPos1
+  - camPos2
+  - border
+  - ball?
+  - sendMeFlying
+  - zoom
+  - bottom
+  - boost
+  - death
+  - vent
+  - 5Pointer
+  - 10Pointer
+  - 20Pointer
+  - score
+  - ventExit
+  - 1Pointer
+  - 50Pointer
+  - scoreHolder
+  - cam
+  - safe
+  - music
+  - lives
+  - start
+  - pity
+  - roulette
+  - sider
+  - rouletteAudio
+  - S5Pointer
+  - S10Pointer
+  - multiplier
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - NoTouchyTouchy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
