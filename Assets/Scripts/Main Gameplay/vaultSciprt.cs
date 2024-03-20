@@ -47,7 +47,7 @@ public class vaultSciprt : MonoBehaviour
             icktimer = timerTimer;
         }
         else if((stickCount>=0) && (icktimer>=0))
-        {
+        { 
             icktimer -= Time.deltaTime;
         }
 
