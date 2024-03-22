@@ -3224,9 +3224,9 @@ EdgeCollider2D:
   - {x: -1.4351933, y: -0.055033267}
   - {x: -1.262234, y: 0.22726676}
   - {x: -0.9489206, y: 0.28191903}
-  - {x: 0.9393286, y: 0.49942297}
-  - {x: 1.2828773, y: 0.35700777}
-  - {x: 1.4804778, y: -0.23750593}
+  - {x: 1.0076495, y: 0.36750576}
+  - {x: 1.1752436, y: 0.2583652}
+  - {x: 1.3560072, y: -0.26732254}
   - {x: 1.0552211, y: -0.5581887}
   - {x: -1.1446795, y: -0.33418745}
   - {x: -1.4508779, y: -0.08579805}
@@ -7310,7 +7310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621615446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.35, y: 20.31, z: -90}
+  m_LocalPosition: {x: -9.18, y: 20.31, z: -90}
   m_LocalScale: {x: 2.875, y: 2.875, z: 2.875}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8928,7 +8928,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2196545399648641144, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
       propertyPath: m_Size.y
-      value: 5.3838406
+      value: 5.3045425
       objectReference: {fileID: 0}
     - target: {fileID: 2196545399648641144, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
       propertyPath: m_Material
@@ -8936,7 +8936,7 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: 506e78adab9c0374bacde91b5769b376, type: 2}
     - target: {fileID: 2196545399648641144, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
       propertyPath: m_Offset.y
-      value: 0.12524188
+      value: 0.16489077
       objectReference: {fileID: 0}
     - target: {fileID: 3926400201040197902, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
       propertyPath: m_Name
@@ -9127,6 +9127,14 @@ PrefabInstance:
       propertyPath: rouletteAudio
       value: 
       objectReference: {fileID: 2025643748}
+    - target: {fileID: 7357246674396603929, guid: 4c86cafb9ecf4b44787635071ca50f2d, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357246674396603929, guid: 4c86cafb9ecf4b44787635071ca50f2d, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7357246674396603933, guid: 4c86cafb9ecf4b44787635071ca50f2d, type: 3}
       propertyPath: m_Name
       value: RB-79

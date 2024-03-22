@@ -11,7 +11,7 @@ public class leftFlipper : MonoBehaviour
     void Start()
     {
         
-        powa = 20000.0f;
+        powa = 100000.0f;
         rb = GetComponent<Rigidbody2D>();
         
     }
