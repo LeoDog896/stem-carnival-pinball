@@ -90,6 +90,7 @@ public class ballScript : MonoBehaviour
         miniboost = new Vector2(-Random.Range(-5, 5), 0);
         rb = GetComponent<Rigidbody2D>();
         atStart = true;
+        //JUMP
         jump = new Vector2(0, Random.Range(33, 36));
         hits = 0;
         boost = new Vector2(0, 10);
