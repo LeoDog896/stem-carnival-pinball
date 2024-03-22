@@ -35,7 +35,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
     void Start()
     {
         //Identifies the scene
-        Debug.Log("IMPORTANT Start: " + SceneManager.GetActiveScene().name);
+        //Debug.Log("IMPORTANT Start: " + SceneManager.GetActiveScene().name);
 
         //set the basic variables (they likely won't be set for gameOver scene and leaderboard scenes because they are loaded by another script.
         charInd = 0;
@@ -45,7 +45,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
 
         //probably the most problematic var
         uncalled = true;
-        Debug.Log("IMPORTANT LEADERBOARD Uncalled: " + uncalled + ", leaderBoardStage: " + leaderBoardStage + " at " + SceneManager.GetActiveScene().name);
+        //Debug.Log("IMPORTANT LEADERBOARD Uncalled: " + uncalled + ", leaderBoardStage: " + leaderBoardStage + " at " + SceneManager.GetActiveScene().name);
 
         charOnCooldown = false;
         scoreLocated = false;
@@ -64,7 +64,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
             //Filling that char array
             characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.!?".ToCharArray();
 
-            Debug.Log("Pretitle");
+            //Debug.Log("Pretitle");
             topFive = new string[7, 2];
 
             
@@ -86,7 +86,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
                 //Checking the values as they are filled in
                 for (int j = 0; j <=1; j++)
                 {
-                    Debug.Log(i + ", " + j + " = " + topFive[i, j]);
+                    //Debug.Log(i + ", " + j + " = " + topFive[i, j]);
                 }
             }
 
@@ -112,17 +112,17 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
                 scoreView = GameObject.FindWithTag("score").GetComponent<Text>();
                 scoreView.text = "" + score;
                 int.TryParse(topFive[6, 1], out temp);
-                Debug.Log("And right in front of you, the " + SceneManager.GetActiveScene().name);
+                //Debug.Log("And right in front of you, the " + SceneManager.GetActiveScene().name);
                 //if score is greater than 7th, replace 7th with your score
-                Debug.Log("IMPORTANT Score: " + score);
-                Debug.Log("IMPORTANT last score: " + temp);
+                //Debug.Log("IMPORTANT Score: " + score);
+                //Debug.Log("IMPORTANT last score: " + temp);
 
                 if (score > temp)
                 {
-                    Debug.Log("IMPORTANT Hey, this one ain't that bad");
+                    //Debug.Log("IMPORTANT Hey, this one ain't that bad");
                     topFive[6, 1] = "" + score;
                     topFive[6, 0] = "---";
-                    Debug.Log("IMPORTANT Name: " + topFive[6, 0] + "     Score: " + topFive[6, 1]);
+                    //Debug.Log("IMPORTANT Name: " + topFive[6, 0] + "     Score: " + topFive[6, 1]);
 
 
                     //changing the important variables
@@ -132,7 +132,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
                     ActualSort();
 
                     
-                    Debug.Log("IMPORTANT LEADERBOARD HasBeenCalled = " + !uncalled);
+                    //Debug.Log("IMPORTANT LEADERBOARD HasBeenCalled = " + !uncalled);
 
                 }
                 else
@@ -153,7 +153,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
             if(scoreView != null)
             {
                 int.TryParse(scoreView.text, out score);
-                Debug.Log("Score: " + score);
+                //Debug.Log("Score: " + score);
             }
         }
         //end of main gameplay update
@@ -254,7 +254,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
 
                     //probably the most problematic var
                     uncalled = true;
-                    Debug.Log("IMPORTANT LEADERBOARD Uncalled: " + uncalled + ", leaderBoardStage: " + leaderBoardStage + " at " + SceneManager.GetActiveScene().name);
+                    //Debug.Log("IMPORTANT LEADERBOARD Uncalled: " + uncalled + ", leaderBoardStage: " + leaderBoardStage + " at " + SceneManager.GetActiveScene().name);
 
                     charOnCooldown = false;
                     scoreLocated = false;
@@ -277,7 +277,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
                 
                 SceneManager.LoadScene("Title");
                 score = 0;
-                Debug.Log("IMPORTANT Returning to title, score is reset to: " + score);
+                //Debug.Log("IMPORTANT Returning to title, score is reset to: " + score);
             }
         }
     }
@@ -292,7 +292,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
     {
         ///Exists to check for sorting errors
         string listHolder ="";
-        Debug.Log("ActualSort() called");
+        //Debug.Log("ActualSort() called");
 
 
         int place, higherPlace;
@@ -316,7 +316,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
         {
             listHolder = listHolder + topFive[i, 0] + ":" + topFive[i, 1] + ",   ";
         }
-        Debug.Log(listHolder);
+        //Debug.Log(listHolder);
 
 
         //Check the scoreboard for your score
@@ -331,7 +331,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
                     i = -1;
                     scoreLocated = true;
                     input = true;
-                    Debug.Log("Score is in top 5");
+                    //Debug.Log("Score is in top 5");
                 }
             }
         }
