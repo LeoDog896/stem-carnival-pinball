@@ -69,7 +69,7 @@ public class ballScript : MonoBehaviour
         direction = 0;
         Passing = false;
         isDead = false;
-        speed = 25;
+        speed = 20;
         destroyPity = null;
         jumpTimer = 3.0f;
 
@@ -166,7 +166,7 @@ public class ballScript : MonoBehaviour
                 doubleTimer = 20.0f;
                 GameObject multiplier = GameObject.FindWithTag("multiplier");
                 Destroy(multiplier);
-                Debug.Log("Double Time is up");
+                //Debug.Log("Double Time is up");
             }
         }
 
@@ -244,19 +244,19 @@ public class ballScript : MonoBehaviour
 
         if (prizeVal >= 90)
         {
-            Debug.Log("Triple Points");
+            //Debug.Log("Triple Points");
             multiplierVal = 3;
             Instantiate(x3);
         }
         else if(prizeVal>=60)
         {
-            Debug.Log("Double points");
+            //Debug.Log("Double points");
             multiplierVal = 2;
             Instantiate(x2);
         }
         else if (prizeVal <=20)
         {
-            Debug.Log("Prize: Extralife");
+            //Debug.Log("Prize: Extralife");
             if (lives < 5)
             {
                 lives++;
@@ -266,17 +266,17 @@ public class ballScript : MonoBehaviour
             else
             {
                 multiplierVal = multiplierVal + .5;
-                Debug.Log("Lives overload");
+                //Debug.Log("Lives overload");
                 Instantiate(x1);
             }
         }
         else
         {
-            Debug.Log("default");
+            //Debug.Log("default");
             multiplierVal = multiplierVal + .5;
             Instantiate(x1);
         }
-        Debug.Log("PrizeVal = " + prizeVal);
+       // Debug.Log("PrizeVal = " + prizeVal);
 
 
         
@@ -349,7 +349,7 @@ public class ballScript : MonoBehaviour
             if (otherObject.gameObject.CompareTag("death"))
             {
                 lives--;
-                Debug.Log("Death has been registered");
+                //Debug.Log("Death has been registered");
                 destroyWall = GameObject.FindWithTag("0");
                 destroyPity = GameObject.FindWithTag("pity");
                 musicPlayer.Stop();
@@ -377,7 +377,7 @@ public class ballScript : MonoBehaviour
                 if (lives < 0)
                 {
                     isDead = true;
-                    Debug.Log("Dead");
+                    //Debug.Log("Dead");
                 }
                 else if(lives>=0)
                 {
@@ -485,7 +485,7 @@ public class ballScript : MonoBehaviour
         {
             lives++;
             myAnim.SetInteger("lives", lives);
-            Debug.Log("Loser, try again" + " Lives: " + lives);
+            //Debug.Log("Loser, try again" + " Lives: " + lives);
             Instantiate(pityText);
         }
         else
@@ -496,30 +496,30 @@ public class ballScript : MonoBehaviour
                 {
                     lives++;
                     myAnim.SetInteger("lives", lives);
-                    Debug.Log("Loser, try again" + " Lives: " + lives);
+                    //Debug.Log("Loser, try again" + " Lives: " + lives);
                     Instantiate(pityText);
                 }
             }
             else if (hits < 3)
             {
-                Debug.Log("Standard");
+                //Debug.Log("Standard");
 
                 if ((int)Random.Range(0, 3) == 0)
                 {
                     lives++;
                     myAnim.SetInteger("lives", lives);
-                    Debug.Log("Loser, try again" + " Lives: " + lives);
+                    //Debug.Log("Loser, try again" + " Lives: " + lives);
                     Instantiate(pityText);
                 }
             }
             else if (hits <= 7)
             {
-                Debug.Log("Mmm, potato");
+                //Debug.Log("Mmm, potato");
                 if (Random.Range(0, 10) > 9)
                 {
                     lives++;
                     myAnim.SetInteger("lives", lives);
-                    Debug.Log("Loser, try again" + " Lives: " + lives);
+                    //Debug.Log("Loser, try again" + " Lives: " + lives);
                     Instantiate(pityText);
                 }
             }

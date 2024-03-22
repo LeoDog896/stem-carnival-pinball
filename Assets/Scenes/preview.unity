@@ -1267,7 +1267,6 @@ GameObject:
   m_Component:
   - component: {fileID: 279434298}
   - component: {fileID: 279434297}
-  - component: {fileID: 279434299}
   m_Layer: 0
   m_Name: backgroundGradient
   m_TagString: Untagged
@@ -1342,22 +1341,6 @@ Transform:
   m_Father: {fileID: 177984342}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &279434299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279434296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca23046aad5b284290f301bef4bce98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  line1: {fileID: 8300000, guid: fbca8abc82aae0a4f80ed89578d366a6, type: 3}
-  line2: {fileID: 8300000, guid: d9cd71a65e8973d4597305245d7d4841, type: 3}
-  line3: {fileID: 8300000, guid: 8916c3473cf9bde4088520952543f993, type: 3}
-  eddie: {fileID: 0}
 --- !u!1 &282215282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,7 +3187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fbf2625a9223a442ad828efb2e0afb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  auto: 0
+  auto: 1
 --- !u!68 &620300968
 EdgeCollider2D:
   m_ObjectHideFlags: 0
