@@ -10,7 +10,7 @@ public class rightFlipper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        powa = 20000000.0f;
+        powa = 20000.0f;
         rb = GetComponent<Rigidbody2D>();
 
     }
