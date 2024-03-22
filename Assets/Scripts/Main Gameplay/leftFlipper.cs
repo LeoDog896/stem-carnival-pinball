@@ -21,7 +21,9 @@ public class leftFlipper : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.F) || (Input.GetAxis("left") == 1))
         {
+            Debug.Log("Left Flipper");
             rb.AddTorque(powa);
+
         }
     }
 
@@ -29,6 +31,7 @@ public class leftFlipper : MonoBehaviour
     {
         if(auto)
         {
+            Debug.Log("Left Flipper Auto");
             rb.AddTorque(powa);
 
         }

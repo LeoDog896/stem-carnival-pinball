@@ -20,6 +20,7 @@ public class rightFlipper : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.J) || (Input.GetAxis("right") == 1))
         {
+            Debug.Log("Right Flipper");
             rb.AddTorque(-powa);
         }
     }
@@ -30,7 +31,7 @@ public class rightFlipper : MonoBehaviour
         if (auto)
         {
             rb.AddTorque(-powa);
-
+            Debug.Log("Right Flipper Auto");
         }
     }
 }

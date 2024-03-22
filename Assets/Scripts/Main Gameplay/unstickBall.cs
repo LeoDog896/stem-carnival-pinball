@@ -35,7 +35,7 @@ public class unstickBall : MonoBehaviour
 
         if (isStuck)
         {
-            Debug.Log("Player might be stuck");
+            //Debug.Log("Player might be stuck");
             stuck = false;
             timer = 5.0f;
             if (Input.GetAxis("Jump") == 1 && isStuck)
