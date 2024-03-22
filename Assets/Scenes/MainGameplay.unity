@@ -2521,7 +2521,7 @@ HingeJoint2D:
   m_UseLimits: 1
   m_AngleLimits:
     m_LowerAngle: -95.408905
-    m_UpperAngle: -6.8270836
+    m_UpperAngle: 3.487278
 --- !u!50 &496453091
 Rigidbody2D:
   serializedVersion: 4
@@ -3117,7 +3117,7 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 10.5311775
+    m_LowerAngle: -4.380417
     m_UpperAngle: 87.78172
 --- !u!50 &620300964
 Rigidbody2D:
@@ -8590,9 +8590,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2196545399648641144, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
+      propertyPath: m_Size.y
+      value: 5.3755527
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196545399648641144, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 506e78adab9c0374bacde91b5769b376, type: 2}
+    - target: {fileID: 2196545399648641144, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.12938571
+      objectReference: {fileID: 0}
     - target: {fileID: 3926400201040197902, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
       propertyPath: m_Name
       value: WallGold (1)
@@ -8919,9 +8927,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2196545399648641144, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
+      propertyPath: m_Size.y
+      value: 5.3838406
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196545399648641144, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 506e78adab9c0374bacde91b5769b376, type: 2}
+    - target: {fileID: 2196545399648641144, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.12524188
+      objectReference: {fileID: 0}
     - target: {fileID: 3926400201040197902, guid: e685740fc326b2f42ab6fa0c94da7c33, type: 3}
       propertyPath: m_Name
       value: WallGold
