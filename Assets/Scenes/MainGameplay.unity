@@ -9129,7 +9129,7 @@ PrefabInstance:
       objectReference: {fileID: 2025643748}
     - target: {fileID: 7357246674396603929, guid: 4c86cafb9ecf4b44787635071ca50f2d, type: 3}
       propertyPath: m_GravityScale
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7357246674396603933, guid: 4c86cafb9ecf4b44787635071ca50f2d, type: 3}
       propertyPath: m_Name

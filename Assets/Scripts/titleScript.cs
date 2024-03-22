@@ -39,7 +39,7 @@ public class titleScript : MonoBehaviour
             Debug.Log("Report to credits immediately");
             SceneManager.LoadScene("Credits");
         }
-        else if ((Input.GetKey(KeyCode.J) && (SceneManager.GetActiveScene()).name.Equals("Credits")) && !cooldown)
+        else if (((Input.GetKey(KeyCode.J) && (SceneManager.GetActiveScene()).name.Equals("Credits")) && !cooldown) || Input.GetAxis("left") == 1)
         {
             Debug.Log("RETREAT!");
             SceneManager.LoadScene("Title");
