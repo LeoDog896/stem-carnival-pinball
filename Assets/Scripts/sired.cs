@@ -26,7 +26,7 @@ public class sired : MonoBehaviour
             if (transparency < 1 && direction == 1)
             {
                 renderer.color = new Color(1f, 1f, 1f, transparency);
-                transparency += 0.01f*direction;
+                transparency += 0.1f*direction;
                 if(transparency>=1)
                 {
                     direction = -1;

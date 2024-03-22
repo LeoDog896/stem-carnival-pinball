@@ -25,6 +25,7 @@ public class ballScript : MonoBehaviour
     int score = 0;
     int hit;
     double multiplierVal;
+    public bool auto;
 
 
 
@@ -42,7 +43,7 @@ public class ballScript : MonoBehaviour
     //animation 
     Animator myAnim;
     GameObject lifeAsset;
-    
+    float jumpTimer;
 
     //ballstuff
     Rigidbody2D rb;
@@ -68,8 +69,9 @@ public class ballScript : MonoBehaviour
         direction = 0;
         Passing = false;
         isDead = false;
-        speed = 17;
+        speed = 25;
         destroyPity = null;
+        jumpTimer = 3.0f;
 
         musicPlayer = cam.GetComponent<AudioSource>();
         musicPlayer.clip = main;
@@ -101,11 +103,12 @@ public class ballScript : MonoBehaviour
        
 
     }
+    
 
-    // Update is called once per frame
-    void Update()
+    //camstuff
+    void FixedUpdate()
     {
-        if(rouletteTimer>0 && roulTimerNeeded)
+        if (rouletteTimer > 0 && roulTimerNeeded)
         {
             rouletteTimer -= Time.deltaTime;
         }
@@ -118,47 +121,59 @@ public class ballScript : MonoBehaviour
             rouletteTimer = 2.0f;
 
             rewardPlayer();
-            if (rouller!=null)
+            if (rouller != null)
             {
                 Destroy(rouller);
             }
-            
+
         }
 
 
         //jump
 
 
-        if (Input.GetAxis("Jump") == 1 && atStart)
+        if (((Input.GetAxis("Jump") == 1) || auto) && atStart)
         {
-            jump = new Vector2(0, Random.Range(13, 16));
-            rb.AddForce(jump, ForceMode2D.Impulse);
-            atStart = false;
+            if(auto && (jumpTimer<=0))
+            {
+                jump = new Vector2(0, Random.Range(13, 16));
+                rb.AddForce(jump, ForceMode2D.Impulse);
+                atStart = false;
+                jumpTimer = 3.0f;
+            }
+            else if(!auto)
+            {
+                jump = new Vector2(0, Random.Range(13, 16));
+                rb.AddForce(jump, ForceMode2D.Impulse);
+                atStart = false;
+            }
             
 
+            if(jumpTimer>0)
+            {
+                jumpTimer -= Time.deltaTime;
+            }
 
         }
 
         //multiplier timer
-        if (multiplierVal>1)
+        if (multiplierVal > 1)
         {
             doubleTimer -= Time.deltaTime;
             if (doubleTimer <= 0)
             {
                 multiplierVal = 1;
-                doubleTimer =20.0f;
+                doubleTimer = 20.0f;
                 GameObject multiplier = GameObject.FindWithTag("multiplier");
                 Destroy(multiplier);
                 Debug.Log("Double Time is up");
             }
         }
-        
-    }
 
-    //camstuff
-    void FixedUpdate()
-    {
-        if(isActive)
+
+
+
+        if (isActive)
         {
             gameTimer += Time.deltaTime;
         }
@@ -250,7 +265,7 @@ public class ballScript : MonoBehaviour
             }
             else
             {
-                multiplierVal = 1.5;
+                multiplierVal = multiplierVal + .5;
                 Debug.Log("Lives overload");
                 Instantiate(x1);
             }
@@ -258,7 +273,7 @@ public class ballScript : MonoBehaviour
         else
         {
             Debug.Log("default");
-            multiplierVal = 1.5;
+            multiplierVal = multiplierVal + .5;
             Instantiate(x1);
         }
         Debug.Log("PrizeVal = " + prizeVal);
@@ -338,8 +353,16 @@ public class ballScript : MonoBehaviour
                 destroyWall = GameObject.FindWithTag("0");
                 destroyPity = GameObject.FindWithTag("pity");
                 musicPlayer.Stop();
+                multiplierVal = 1;
+                
                 isActive = false;
                 spawnGambler();
+                GameObject multiplier = GameObject.FindWithTag("multiplier");
+                
+                if(multiplier!=null)
+                {
+                    Destroy(multiplier);
+                }
 
             if (destroyWall != null)
                 {

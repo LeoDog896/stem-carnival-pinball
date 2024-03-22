@@ -10,25 +10,26 @@ public class rightFlipper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        powa = 200.0f;
+        powa = 20000.0f;
         rb = GetComponent<Rigidbody2D>();
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKey(KeyCode.J) || (Input.GetAxis("right") == 1))
         {
             rb.AddTorque(-powa);
         }
     }
 
+
     void OnCollisionEnter2D(Collision2D otherObject)
     {
         if (auto)
         {
-            rb.AddTorque(powa);
+            rb.AddTorque(-powa);
 
         }
     }

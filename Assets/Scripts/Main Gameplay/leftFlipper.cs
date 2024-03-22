@@ -11,15 +11,15 @@ public class leftFlipper : MonoBehaviour
     void Start()
     {
         
-        powa = 200.0f;
+        powa = 20000.0f;
         rb = GetComponent<Rigidbody2D>();
         
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.F))
+        if(Input.GetKey(KeyCode.F) || (Input.GetAxis("left") == 1))
         {
             rb.AddTorque(powa);
         }
