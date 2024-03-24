@@ -412,7 +412,7 @@ public class ballScript : MonoBehaviour
         void OnCollisionEnter2D(Collision2D otherObject)
         {
 
-        if (otherObject.gameObject.CompareTag("wall?"))
+        if (otherObject.gameObject.CompareTag("0"))
         {
             if(transform.position.x>= otherObject.gameObject.transform.position.x)
             {

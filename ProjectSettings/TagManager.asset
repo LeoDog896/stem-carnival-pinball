@@ -36,6 +36,8 @@ TagManager:
   - S5Pointer
   - S10Pointer
   - multiplier
+  - wall?
+  - hS
   layers:
   - Default
   - TransparentFX

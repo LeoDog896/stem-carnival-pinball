@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/preTitle.unity
     guid: c35601e9169593048849789fcd8d51fd
   - enabled: 1
@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/preview.unity
     guid: 8f7579bfb0ad1534cbab30a633beca91
+  - enabled: 1
+    path: Assets/Scenes/scoreScene.unity
+    guid: d671af1534da6f74eb0246c9a7f0a908
   m_configObjects: {}

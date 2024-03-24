@@ -33,7 +33,7 @@ public class vanish : MonoBehaviour
             transparency -= 0.01f;
             if(transparency<=0)
             {
-                Invoke("Function", 5.0f);
+                Invoke("Function", 3.0f);
             }
         }
 
@@ -41,6 +41,6 @@ public class vanish : MonoBehaviour
 
     void Function()
     {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("scoreScene");
     }
 }

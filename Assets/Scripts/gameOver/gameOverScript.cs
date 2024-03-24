@@ -22,7 +22,7 @@ public class gameOverScript : MonoBehaviour
         }
         else
         {
-            t += 0.01f;
+            t += 0.03f;
         }
 
         
