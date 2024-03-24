@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class rightFlipper : MonoBehaviour
 {
     Rigidbody2D rb;
     float powa;
     public bool auto;
+    public AudioSource flipsound;
     // Start is called before the first frame update
     void Start()
     {
-        powa = 1000.0f;
+        if(SceneManager.GetActiveScene().name.Equals("MainGameplay"))
+        {
+            powa = 1000.0f;
+        }
+        if(SceneManager.GetActiveScene().name.Equals("preview"))
+        {
+            powa = 10000.0f;
+        }
         rb = GetComponent<Rigidbody2D>();
+        
 
     }
 

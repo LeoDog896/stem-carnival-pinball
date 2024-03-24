@@ -39,8 +39,11 @@ public class scorethingy : MonoBehaviour
                 int.TryParse(scoreView.text, out score);
             }
         }
-
-        if(SceneManager.GetActiveScene().name.Equals("scoreScene") || SceneManager.GetActiveScene().name.Equals("scoreScene2"))
+        if (SceneManager.GetActiveScene().name.Equals("preview") && Input.GetAxis("Jump") == 1)
+        {
+            SceneManager.LoadScene("Title");
+        }
+            if (SceneManager.GetActiveScene().name.Equals("scoreScene") || SceneManager.GetActiveScene().name.Equals("scoreScene2"))
         {
             if (uncalled)
             {

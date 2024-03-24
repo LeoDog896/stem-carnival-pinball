@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class ballScript : MonoBehaviour
 {
@@ -109,7 +111,6 @@ public class ballScript : MonoBehaviour
     //camstuff
     void FixedUpdate()
     {
-        
         if (rouletteTimer > 0 && roulTimerNeeded)
         {
             rouletteTimer -= Time.deltaTime;
@@ -374,14 +375,19 @@ public class ballScript : MonoBehaviour
                 {
                     Destroy(destroyPity);
                 }
-            
-            
-                if (lives < 0)
-                {
-                    isDead = true;
-                    //Debug.Log("Dead");
-                }
-                else if(lives>=0)
+
+
+            if (lives < 0 && SceneManager.GetActiveScene().name.Equals("MainGameplay"))
+            {
+
+                isDead = true;
+                //Debug.Log("Dead");
+            }
+            else if (lives < 0 && SceneManager.GetActiveScene().name.Equals("preview"))
+            {
+                SceneManager.LoadScene("Title");
+            }
+            else if(lives>=0)
                 {
                     if(lives<2)
                     {
