@@ -497,48 +497,52 @@ public class ballScript : MonoBehaviour
     
     void pityBall()
     {
-        if(gameTimer<=5.0f)
+        if (!auto)
         {
-            lives++;
-            myAnim.SetInteger("lives", lives);
-            //Debug.Log("Loser, try again" + " Lives: " + lives);
-            Instantiate(pityText);
-        }
-        else
-        {
-            if (hits <= 1)
+            if (gameTimer <= 5.0f)
             {
-                if ((int)Random.Range(0, 2) == 0)
-                {
-                    lives++;
-                    myAnim.SetInteger("lives", lives);
-                    //Debug.Log("Loser, try again" + " Lives: " + lives);
-                    Instantiate(pityText);
-                }
+                lives++;
+                myAnim.SetInteger("lives", lives);
+                //Debug.Log("Loser, try again" + " Lives: " + lives);
+                Instantiate(pityText);
             }
-            else if (hits < 3)
+            else
             {
-                //Debug.Log("Standard");
+                if (hits <= 1)
+                {
+                    if ((int)Random.Range(0, 2) == 0)
+                    {
+                        lives++;
+                        myAnim.SetInteger("lives", lives);
+                        //Debug.Log("Loser, try again" + " Lives: " + lives);
+                        Instantiate(pityText);
+                    }
+                }
+                else if (hits < 3)
+                {
+                    //Debug.Log("Standard");
 
-                if ((int)Random.Range(0, 3) == 0)
+                    if ((int)Random.Range(0, 3) == 0)
+                    {
+                        lives++;
+                        myAnim.SetInteger("lives", lives);
+                        //Debug.Log("Loser, try again" + " Lives: " + lives);
+                        Instantiate(pityText);
+                    }
+                }
+                else if (hits <= 7)
                 {
-                    lives++;
-                    myAnim.SetInteger("lives", lives);
-                    //Debug.Log("Loser, try again" + " Lives: " + lives);
-                    Instantiate(pityText);
+                    //Debug.Log("Mmm, potato");
+                    if (Random.Range(0, 10) > 9)
+                    {
+                        lives++;
+                        myAnim.SetInteger("lives", lives);
+                        //Debug.Log("Loser, try again" + " Lives: " + lives);
+                        Instantiate(pityText);
+                    }
                 }
             }
-            else if (hits <= 7)
-            {
-                //Debug.Log("Mmm, potato");
-                if (Random.Range(0, 10) > 9)
-                {
-                    lives++;
-                    myAnim.SetInteger("lives", lives);
-                    //Debug.Log("Loser, try again" + " Lives: " + lives);
-                    Instantiate(pityText);
-                }
-            }
+
         }
         
         hits = 0;
