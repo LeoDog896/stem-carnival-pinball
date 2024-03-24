@@ -109,6 +109,7 @@ public class ballScript : MonoBehaviour
     //camstuff
     void FixedUpdate()
     {
+        
         if (rouletteTimer > 0 && roulTimerNeeded)
         {
             rouletteTimer -= Time.deltaTime;
