@@ -39,7 +39,7 @@ public class scorethingy : MonoBehaviour
             }
         }
 
-        if(SceneManager.GetActiveScene().name.Equals("scoreScene"))
+        if(SceneManager.GetActiveScene().name.Equals("scoreScene") || SceneManager.GetActiveScene().name.Equals("scoreScene2"))
         {
             if (uncalled)
             {

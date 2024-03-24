@@ -146,6 +146,6 @@ public class vaultSciprt : MonoBehaviour
     void endGame()
     {
         //SceneManager.LoadScene("VaultLeaderboard");
-        SceneManager.LoadScene("VTitle");
+        SceneManager.LoadScene("ScoreScene2");
     }
 }
