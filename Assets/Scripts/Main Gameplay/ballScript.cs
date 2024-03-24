@@ -91,7 +91,7 @@ public class ballScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         atStart = true;
         //JUMP
-        jump = new Vector2(0, Random.Range(73, 76));
+        jump = new Vector2(0, Random.Range(13, 16));
         hits = 0;
         boost = new Vector2(0, 15);
 
