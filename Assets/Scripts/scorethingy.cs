@@ -29,10 +29,7 @@ public class scorethingy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetAxis("Fire3") == 1)
-        {
-            SceneManager.LoadScene("Title");
-        }
+       
         if (SceneManager.GetActiveScene().name.Equals("MainGameplay"))
         {
             //steals the score from the score text in the main gameplay scene
