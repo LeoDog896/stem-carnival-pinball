@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class altLeadBoardPlzSendHelp : MonoBehaviour
 {
+    /*
     //I feel like re-writing a script that is awful because it was written at 3am is not a good idea when it's 1:40am, but whatever...
 
     //Hello, 12:19 Erick here, I am so gonna hate myself later. But that is not my problem. In case I go missing, the password is p0t@toes. 
@@ -387,7 +388,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
        
 
         }
-             */
+             
             //done sorting
 
 
@@ -413,7 +414,7 @@ public class altLeadBoardPlzSendHelp : MonoBehaviour
 
     }
 
-    
+    */
 
 
     //Close class
