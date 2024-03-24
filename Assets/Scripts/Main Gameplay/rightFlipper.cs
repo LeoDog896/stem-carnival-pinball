@@ -28,11 +28,15 @@ public class rightFlipper : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.J) || (Input.GetAxis("right") == 1))
+        if (!auto)
         {
-            Debug.Log("Right Flipper");
-            rb.AddTorque(-powa);
+            if (Input.GetKey(KeyCode.J) || (Input.GetAxis("right") == 1))
+                    {
+                        Debug.Log("Right Flipper");
+                        rb.AddTorque(-powa);
+                    }
         }
+        
     }
 
 
@@ -42,6 +46,8 @@ public class rightFlipper : MonoBehaviour
         {
             rb.AddTorque(-powa);
             Debug.Log("Right Flipper Auto");
+
+            flipsound.Play();
         }
     }
 }

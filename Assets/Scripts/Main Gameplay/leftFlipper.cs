@@ -28,12 +28,15 @@ public class leftFlipper : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.F) || (Input.GetAxis("left") == 1))
+        if (!auto)
         {
-            Debug.Log("Left Flipper");
-            rb.AddTorque(powa);
-
+            if (Input.GetKey(KeyCode.F) || (Input.GetAxis("left") == 1))
+            {
+                Debug.Log("Left Flipper");
+                rb.AddTorque(powa);
+            }
         }
+        
     }
 
     void OnCollisionEnter2D(Collision2D otherObject)
@@ -42,6 +45,7 @@ public class leftFlipper : MonoBehaviour
         {
             Debug.Log("Left Flipper Auto");
             rb.AddTorque(powa);
+            flipsound.Play();
 
         }
     }
