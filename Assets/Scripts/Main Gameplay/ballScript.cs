@@ -20,7 +20,7 @@ public class ballScript : MonoBehaviour
     public GameObject blackScreen, pityText, roul;
     int direction, speed, lives;
     public GameObject cam, start;
-    bool Passing, isDead;
+    bool Passing;
     int hits;
     GameObject destroyPity, checkRoul;
     public Text scoreView;
@@ -70,7 +70,6 @@ public class ballScript : MonoBehaviour
         lives = 2;
         direction = 0;
         Passing = false;
-        isDead = false;
         speed = 20;
         destroyPity = null;
         jumpTimer = 3.0f;
@@ -208,20 +207,22 @@ public class ballScript : MonoBehaviour
             Passing = !false;
         }
 
-        if (isDead)
+        BioTrack.OnFinish((cont) =>
         {
             cam.transform.Translate(0, speed * Time.deltaTime * -1, 0);
-            
+
             if (cam.transform.position.y <= -10)
             {
                 Instantiate(r);
                 Instantiate(b);
                 policeSound.Play();
-                isDead = false;
                 Invoke("FadeBlack", 1.0f);
 
+             
             }
-        }
+        });
+
+       
     }
 
 
@@ -291,7 +292,7 @@ public class ballScript : MonoBehaviour
     //gameover fade
     void FadeBlack()
     {
-        Instantiate(blackScreen);
+        SceneManager.LoadScene("Title");
     }
 
 
@@ -379,8 +380,8 @@ public class ballScript : MonoBehaviour
 
             if (lives < 0 && SceneManager.GetActiveScene().name.Equals("MainGameplay"))
             {
-
-                isDead = true;
+                BioTrack.FinishGame(score / 1000, false, new object());
+                
                 //Debug.Log("Dead");
             }
             else if (lives < 0 && SceneManager.GetActiveScene().name.Equals("preview"))

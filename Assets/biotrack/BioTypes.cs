@@ -32,6 +32,7 @@ public class JoinRequestUser
 public class Session
 {
     public int id { get; set; }
+    public string message { get; set; }
     public DateTime createdAt { get; set; }
     public DateTime updatedAt { get; set; }
     public int gameId { get; set; }
