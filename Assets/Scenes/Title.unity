@@ -393,7 +393,6 @@ GameObject:
   - component: {fileID: 870392624}
   - component: {fileID: 870392627}
   - component: {fileID: 870392628}
-  - component: {fileID: 870392629}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: cam
@@ -491,20 +490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd00a335e5c0314b876af45e18ed71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &870392629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870392623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9468a76ef80bcc2498d039878bdb0505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bioTrackGameId: 3
-  maxPlayerCount: 1
 --- !u!1 &917881611
 GameObject:
   m_ObjectHideFlags: 0
