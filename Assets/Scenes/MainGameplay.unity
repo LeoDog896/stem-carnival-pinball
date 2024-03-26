@@ -2556,7 +2556,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   auto: 0
-  flipsound: {fileID: 0}
 --- !u!68 &496453094
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -2685,7 +2684,6 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420035}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: cam
@@ -2879,20 +2877,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9468a76ef80bcc2498d039878bdb0505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bioTrackGameId: 1
-  maxPlayerCount: 1
 --- !u!4 &554181579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 320384560469228427, guid: 4cb33aa12df2b684b99350ad41c3b6e7, type: 3}
@@ -3221,7 +3205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   auto: 0
-  flipsound: {fileID: 0}
 --- !u!68 &620300968
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -4546,7 +4529,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   auto: 0
-  flipsound: {fileID: 0}
 --- !u!233 &886921947
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -6473,7 +6455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   auto: 0
-  flipsound: {fileID: 0}
 --- !u!233 &1485600294
 HingeJoint2D:
   m_ObjectHideFlags: 0

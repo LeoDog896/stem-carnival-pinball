@@ -28,13 +28,10 @@ public class titleScript : MonoBehaviour
     void Update()
     {
         //Scene changer
-        BioTrack.OnStart((List<JoinRequestUser> users) =>
+        if(Input.GetAxis("Jump") == 1 && ((SceneManager.GetActiveScene()).name.Equals("Title") || (SceneManager.GetActiveScene()).name.Equals("VTitle")))
         {
-            if(SceneManager.GetActiveScene().name.Equals("Title") || SceneManager.GetActiveScene().name.Equals("VTitle"))
-            {
-                SceneManager.LoadScene("MainGameplay");
-            }
-        });
+            SceneManager.LoadScene("MainGameplay");
+        }
 
         if (SceneManager.GetActiveScene().name.Equals("Title"))
         {

@@ -211,7 +211,7 @@ public class ballScript : MonoBehaviour
         if (isDead)
         {
             cam.transform.Translate(0, speed * Time.deltaTime * -1, 0);
-
+            
             if (cam.transform.position.y <= -10)
             {
                 Instantiate(r);
