@@ -20,7 +20,7 @@ public class ballScript : MonoBehaviour
     public GameObject blackScreen, pityText, roul;
     int direction, speed, lives;
     public GameObject cam, start;
-    bool Passing;
+    bool Passing, isDead;
     int hits;
     GameObject destroyPity, checkRoul;
     public Text scoreView;
@@ -57,7 +57,7 @@ public class ballScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       rouletteTimer = 2.0f;
+        rouletteTimer = 2.0f;
         roulTimerNeeded = false;
         gameTimer = 0;
         isActive = false;
@@ -70,6 +70,7 @@ public class ballScript : MonoBehaviour
         lives = 2;
         direction = 0;
         Passing = false;
+        isDead = false;
         speed = 20;
         destroyPity = null;
         jumpTimer = 3.0f;
@@ -102,10 +103,10 @@ public class ballScript : MonoBehaviour
         myAnim = lifeAsset.GetComponent<Animator>();
         myAnim.SetInteger("lives", lives);
 
-       
+
 
     }
-    
+
 
     //camstuff
     void FixedUpdate()
@@ -136,22 +137,22 @@ public class ballScript : MonoBehaviour
 
         if (((Input.GetAxis("Jump") == 1) || auto) && atStart)
         {
-            if(auto && (jumpTimer<=0))
+            if (auto && (jumpTimer <= 0))
             {
                 jump = new Vector2(0, Random.Range(13, 16));
                 rb.AddForce(jump, ForceMode2D.Impulse);
                 atStart = false;
                 jumpTimer = 3.0f;
             }
-            else if(!auto)
+            else if (!auto)
             {
                 jump = new Vector2(0, Random.Range(13, 16));
                 rb.AddForce(jump, ForceMode2D.Impulse);
                 atStart = false;
             }
-            
 
-            if(jumpTimer>0)
+
+            if (jumpTimer > 0)
             {
                 jumpTimer -= Time.deltaTime;
             }
@@ -189,7 +190,7 @@ public class ballScript : MonoBehaviour
         }
 
 
-        if(gameObject.transform.position.y<(cam.transform.position.y - 4.5f) && ((cam.transform.position.y > 0)) && ((cam.transform.position.y < 10)))
+        if (gameObject.transform.position.y < (cam.transform.position.y - 4.5f) && ((cam.transform.position.y > 0)) && ((cam.transform.position.y < 10)))
         {
             direction = -1;
             Passing = true;
@@ -207,7 +208,7 @@ public class ballScript : MonoBehaviour
             Passing = !false;
         }
 
-        BioTrack.OnFinish((cont) =>
+        if (isDead)
         {
             cam.transform.Translate(0, speed * Time.deltaTime * -1, 0);
 
@@ -216,13 +217,11 @@ public class ballScript : MonoBehaviour
                 Instantiate(r);
                 Instantiate(b);
                 policeSound.Play();
+                isDead = false;
                 Invoke("FadeBlack", 1.0f);
 
-             
             }
-        });
-
-       
+        }
     }
 
 
@@ -234,31 +233,41 @@ public class ballScript : MonoBehaviour
         rouletteRoll.clip = rolling;
         rouletteRoll.Play();
         roulTimerNeeded = true;
-        
-        
-       
+
+
+
     }
     //End of launch
 
     //Manages player reward
     void rewardPlayer()
     {
+
+        GameObject multiplier = GameObject.FindWithTag("multiplier");
         rouletteAudio.Play();
         int prizeVal = (int)Random.Range(0, 100);
 
         if (prizeVal >= 90)
         {
+            if (multiplier != null)
+            {
+                Destroy(multiplier);
+            }
             //Debug.Log("Triple Points");
             multiplierVal = 3;
             Instantiate(x3);
         }
-        else if(prizeVal>=60)
+        else if (prizeVal >= 60)
         {
+            if (multiplier != null)
+            {
+                Destroy(multiplier);
+            }
             //Debug.Log("Double points");
             multiplierVal = 2;
             Instantiate(x2);
         }
-        else if (prizeVal <=20)
+        else if (prizeVal <= 20)
         {
             //Debug.Log("Prize: Extralife");
             if (lives < 5)
@@ -269,6 +278,10 @@ public class ballScript : MonoBehaviour
             }
             else
             {
+                if (multiplier != null)
+                {
+                    Destroy(multiplier);
+                }
                 multiplierVal = multiplierVal + .5;
                 //Debug.Log("Lives overload");
                 Instantiate(x1);
@@ -276,23 +289,27 @@ public class ballScript : MonoBehaviour
         }
         else
         {
+            if (multiplier != null)
+            {
+                Destroy(multiplier);
+            }
             //Debug.Log("default");
             multiplierVal = multiplierVal + .5;
             Instantiate(x1);
         }
-       // Debug.Log("PrizeVal = " + prizeVal);
+        // Debug.Log("PrizeVal = " + prizeVal);
 
 
-        
+
     }
     //End Player prize
 
 
-    
+
     //gameover fade
     void FadeBlack()
     {
-        SceneManager.LoadScene("Title");
+        Instantiate(blackScreen);
     }
 
 
@@ -311,14 +328,14 @@ public class ballScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D otherObject)
     {
-        if(otherObject.gameObject.CompareTag("sider"))
+        if (otherObject.gameObject.CompareTag("sider"))
         {
-            rb.AddForce(new Vector2(-Random.Range(3,7), Random.Range(-3,0)), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(-Random.Range(3, 7), Random.Range(-3, 0)), ForceMode2D.Impulse);
         }
         if (otherObject.gameObject.CompareTag("roulette"))
         {
             //THE ROULETTE STUFF
-            if((transform.position.y>otherObject.gameObject.transform.position.y) && (cam.transform.position.y!=0))
+            if ((transform.position.y > otherObject.gameObject.transform.position.y) && (cam.transform.position.y != 0))
             {
                 direction = -1;
                 Passing = true;
@@ -329,113 +346,113 @@ public class ballScript : MonoBehaviour
 
         }
 
-            //ballstuff
-            if (otherObject.gameObject.CompareTag("ventExit"))
-            {
-                Invoke("installWallSuddenly", 0.5f);
+        //ballstuff
+        if (otherObject.gameObject.CompareTag("ventExit"))
+        {
+            Invoke("installWallSuddenly", 0.5f);
             miniboost = new Vector2(-Random.Range(-5, 5), 0);
             rb.AddForce(miniboost, ForceMode2D.Impulse);
-                musicPlayer.Play();
-                isActive = true;
+            musicPlayer.Play();
+            isActive = true;
 
-            }
-            if (otherObject.gameObject.CompareTag("boost"))
+        }
+        if (otherObject.gameObject.CompareTag("boost"))
+        {
+
+            if (gameObject.transform.position.y < (otherObject.gameObject.transform.position.y + 0.3f) || transform.position.x < otherObject.gameObject.transform.position.x)
             {
-
-                if (gameObject.transform.position.y < (otherObject.gameObject.transform.position.y + 0.3f) || transform.position.x < otherObject.gameObject.transform.position.x)
-                {
                 boostAudio.Play();
-                    rb.AddForce(boost, ForceMode2D.Impulse);
-                }
-
+                rb.AddForce(boost, ForceMode2D.Impulse);
             }
 
-            if (otherObject.gameObject.CompareTag("death"))
+        }
+
+        if (otherObject.gameObject.CompareTag("death"))
+        {
+            lives--;
+            //Debug.Log("Death has been registered");
+            destroyWall = GameObject.FindWithTag("0");
+            destroyPity = GameObject.FindWithTag("pity");
+            musicPlayer.Stop();
+            multiplierVal = 1;
+
+            isActive = false;
+            spawnGambler();
+            GameObject multiplier = GameObject.FindWithTag("multiplier");
+
+            if (multiplier != null)
             {
-                lives--;
-                //Debug.Log("Death has been registered");
-                destroyWall = GameObject.FindWithTag("0");
-                destroyPity = GameObject.FindWithTag("pity");
-                musicPlayer.Stop();
-                multiplierVal = 1;
-                
-                isActive = false;
-                spawnGambler();
-                GameObject multiplier = GameObject.FindWithTag("multiplier");
-                
-                if(multiplier!=null)
-                {
-                    Destroy(multiplier);
-                }
+                Destroy(multiplier);
+            }
 
             if (destroyWall != null)
-                {
-                    Destroy(destroyWall);
-                }
-            if (destroyPity!=null)
-                {
-                    Destroy(destroyPity);
-                }
+            {
+                Destroy(destroyWall);
+            }
+            if (destroyPity != null)
+            {
+                Destroy(destroyPity);
+            }
 
 
             if (lives < 0 && SceneManager.GetActiveScene().name.Equals("MainGameplay"))
             {
-                BioTrack.FinishGame(score / 1000, false, new object());
-                
+
+                isDead = true;
                 //Debug.Log("Dead");
             }
             else if (lives < 0 && SceneManager.GetActiveScene().name.Equals("preview"))
             {
                 SceneManager.LoadScene("Title");
             }
-            else if(lives>=0)
-                {
-                    if(lives<2)
-                    {
-                        pityBall();
-                    }
-                    
-                    transform.position = start.transform.position;
-                    atStart = true;
-                    
-                }
-                
-
-                    myAnim.SetInteger("lives", lives);
-
-            }
-
-        
-    }
-
-        void installWallSuddenly()
-        {
-            if(transform.position.x<5)
+            else if (lives >= 0)
             {
-                Instantiate(wall);
+                if (lives < 2)
+                {
+                    pityBall();
+                }
+
+                transform.position = start.transform.position;
+                atStart = true;
+
             }
-            
+
+
+            myAnim.SetInteger("lives", lives);
+
         }
 
-        void OnCollisionEnter2D(Collision2D otherObject)
+
+    }
+
+    void installWallSuddenly()
+    {
+        if (transform.position.x < 5)
         {
+            Instantiate(wall);
+        }
+
+    }
+
+    void OnCollisionEnter2D(Collision2D otherObject)
+    {
 
         if (otherObject.gameObject.CompareTag("0"))
         {
-            if(transform.position.x>= otherObject.gameObject.transform.position.x)
+            if (transform.position.x >= otherObject.gameObject.transform.position.x)
             {
                 transform.position = new Vector3((transform.position.x - 1), transform.position.y, 0);
             }
         }
-            if (otherObject.gameObject.CompareTag("1"))
-            {
-                hits++;
-            }
+        if (otherObject.gameObject.CompareTag("1"))
+        {
+            hits++;
+        }
 
-            if(otherObject.gameObject.CompareTag("start"))
-            {
+        if (otherObject.gameObject.CompareTag("start"))
+        {
             atStart = true;
-            }
+        }
 
 
         //roulette
@@ -447,30 +464,30 @@ public class ballScript : MonoBehaviour
         }
         if (otherObject.gameObject.CompareTag("5Pointer"))
         {
-            score += (int)( 50 * multiplierVal);
+            score += (int)(50 * multiplierVal);
 
             scoreView.text = "" + score;
         }
         if (otherObject.gameObject.CompareTag("10Pointer"))
         {
-            
-                score += (int)(100 * multiplierVal);
-            
+
+            score += (int)(100 * multiplierVal);
+
 
             scoreView.text = "" + score;
         }
         if (otherObject.gameObject.CompareTag("20Pointer"))
         {
-            
-                score += (int)(200 * multiplierVal); 
-            
+
+            score += (int)(200 * multiplierVal);
+
             scoreView.text = "" + score;
         }
         if (otherObject.gameObject.CompareTag("50Pointer"))
         {
-            
-            
-                score +=(int) (500 * multiplierVal);
+
+
+            score += (int)(500 * multiplierVal);
 
             spawnGambler();
             scoreView.text = "" + score;
@@ -495,7 +512,7 @@ public class ballScript : MonoBehaviour
 
 
 
-    
+
     void pityBall()
     {
         if (!auto)
@@ -545,7 +562,7 @@ public class ballScript : MonoBehaviour
             }
 
         }
-        
+
         hits = 0;
 
         gameTimer = 0.0f;

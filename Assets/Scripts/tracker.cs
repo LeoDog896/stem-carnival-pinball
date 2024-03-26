@@ -14,6 +14,6 @@ public class tracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = new Vector3(-6.36f, cam.transform.position.y - 3.29f, 0);
+        gameObject.transform.position = new Vector3(-6.36f, cam.transform.position.y - 3.77f, 0);
     }
 }

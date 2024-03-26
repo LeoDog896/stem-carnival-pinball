@@ -18,17 +18,25 @@ public class unstickBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //timer 
-        if(stuck)
+        if (transform.position.x < -4.9885)
         {
-            if(timer>0)
+            transform.position = transform.position + new Vector3(transform.position.x * -1 + 1, transform.position.y, 0);
+        }
+        if (transform.position.x > 8.630001)
+        {
+            transform.position = transform.position + new Vector3(transform.position.x * -1 - 1, transform.position.y, 0);
+        }
+        //timer 
+        if (stuck)
+        {
+            if (timer > 0)
             {
                 timer -= Time.deltaTime;
             }
-            else if(timer<=0)
+            else if (timer <= 0)
             {
                 isStuck = true;
-                
+
             }
         }
 
@@ -40,7 +48,15 @@ public class unstickBall : MonoBehaviour
             timer = 5.0f;
             if (Input.GetAxis("Jump") == 1 && isStuck)
             {
-                transform.position = transform.position + new Vector3(0, 1.5f, 0);
+                
+                if (transform.position.y >= 10.58f)
+                {
+                    transform.position = transform.position + new Vector3(0, -2.0f, 0);
+                }
+                else
+                {
+                    transform.position = transform.position + new Vector3(0, 1.5f, 0);
+                }
                 isStuck = false;
             }
         }
